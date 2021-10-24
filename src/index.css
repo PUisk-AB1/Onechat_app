@@ -8,6 +8,12 @@
 
 /* Chats Page */
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .chats-page {
   position: absolute;
   top: 0px;

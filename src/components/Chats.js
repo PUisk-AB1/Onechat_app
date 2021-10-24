@@ -4,6 +4,9 @@ import { useHistory } from "react-router-dom";
 import { ChatEngine } from "react-chat-engine";
 import { auth } from "../firebase";
 
+import { Loading } from './Loading';
+
+
 import { useAuth } from "../contexts/AuthContext";
 
 const Chats = () => {
@@ -46,7 +49,7 @@ const Chats = () => {
       .catch(() => {
         let formdata = new FormData();
         formdata.append('email', user.email);
-        formdata.append('username', user.email);
+        formdata.append('username', user.display);
         formdata.append('secret', user.uid);
 
         getFile(user.photoURL)
@@ -64,7 +67,7 @@ const Chats = () => {
     }, [user, history]);
 
 
-  if (!user || loading) return 'Loading...';
+  if (!user || loading) return <Loading />;
 
   return (
     <div className="chats-page">
