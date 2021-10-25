@@ -49,7 +49,7 @@ const Chats = () => {
       .catch(() => {
         let formdata = new FormData();
         formdata.append('email', user.email);
-        formdata.append('username', user.display);
+        formdata.append('username', user.email);
         formdata.append('secret', user.uid);
 
         getFile(user.photoURL)
